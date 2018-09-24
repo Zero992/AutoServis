@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AutoServis" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IKlijent_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetNamedPipeBinding_IOperater_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AutoServis" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISistem_Korisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:Korisnik" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_Korisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_Automobil_InputMessage">
+    <wsdl:part name="parameters" element="tns:Automobil" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_Automobil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutomobilResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_Popravka_InputMessage">
+    <wsdl:part name="parameters" element="tns:Popravka" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_Popravka_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PopravkaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_brisiAuto_InputMessage">
+    <wsdl:part name="parameters" element="tns:brisiAuto" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_brisiAuto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:brisiAutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_brisiKorisnika_InputMessage">
+    <wsdl:part name="parameters" element="tns:brisiKorisnika" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_brisiKorisnika_OutputMessage">
+    <wsdl:part name="parameters" element="tns:brisiKorisnikaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_brisiPopravke_InputMessage">
+    <wsdl:part name="parameters" element="tns:brisiPopravke" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_brisiPopravke_OutputMessage">
+    <wsdl:part name="parameters" element="tns:brisiPopravkeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_AzuriranjeCene_InputMessage">
+    <wsdl:part name="parameters" element="tns:AzuriranjeCene" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_AzuriranjeCene_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AzuriranjeCeneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_UkupniTroskovi_InputMessage">
+    <wsdl:part name="parameters" element="tns:UkupniTroskovi" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_UkupniTroskovi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UkupniTroskoviResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_LogInAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogInAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_LogInAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogInAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_UkupniTroskoviString_InputMessage">
+    <wsdl:part name="parameters" element="tns:UkupniTroskoviString" />
+  </wsdl:message>
+  <wsdl:message name="ISistem_UkupniTroskoviString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UkupniTroskoviStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKlijent_LogInKorisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogInKorisnik" />
+  </wsdl:message>
+  <wsdl:message name="IKlijent_LogInKorisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogInKorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKlijent_Uplati_InputMessage">
+    <wsdl:part name="parameters" element="tns:Uplati" />
+  </wsdl:message>
+  <wsdl:message name="IKlijent_Uplati_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UplatiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKlijent_PrikazKorisniku_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrikazKorisniku" />
+  </wsdl:message>
+  <wsdl:message name="IKlijent_PrikazKorisniku_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrikazKorisnikuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterLogin" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterAzuriranjeCene_InputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterAzuriranjeCene" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterAzuriranjeCene_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterAzuriranjeCeneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterKorisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterKorisnik" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterKorisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterKorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterAutomobil_InputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterAutomobil" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterAutomobil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterAutomobilResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterPopravka_InputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterPopravka" />
+  </wsdl:message>
+  <wsdl:message name="IOperater_OperaterPopravka_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OperaterPopravkaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISistem">
+    <wsdl:operation name="Korisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/Korisnik" message="tns:ISistem_Korisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/KorisnikResponse" message="tns:ISistem_Korisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Automobil">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/Automobil" message="tns:ISistem_Automobil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/AutomobilResponse" message="tns:ISistem_Automobil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Popravka">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/Popravka" message="tns:ISistem_Popravka_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/PopravkaResponse" message="tns:ISistem_Popravka_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="brisiAuto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/brisiAuto" message="tns:ISistem_brisiAuto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/brisiAutoResponse" message="tns:ISistem_brisiAuto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="brisiKorisnika">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/brisiKorisnika" message="tns:ISistem_brisiKorisnika_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/brisiKorisnikaResponse" message="tns:ISistem_brisiKorisnika_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="brisiPopravke">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/brisiPopravke" message="tns:ISistem_brisiPopravke_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/brisiPopravkeResponse" message="tns:ISistem_brisiPopravke_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AzuriranjeCene">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/AzuriranjeCene" message="tns:ISistem_AzuriranjeCene_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/AzuriranjeCeneResponse" message="tns:ISistem_AzuriranjeCene_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UkupniTroskovi">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/UkupniTroskovi" message="tns:ISistem_UkupniTroskovi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/UkupniTroskoviResponse" message="tns:ISistem_UkupniTroskovi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogInAdministrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/LogInAdministrator" message="tns:ISistem_LogInAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/LogInAdministratorResponse" message="tns:ISistem_LogInAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UkupniTroskoviString">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistem/UkupniTroskoviString" message="tns:ISistem_UkupniTroskoviString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistem/UkupniTroskoviStringResponse" message="tns:ISistem_UkupniTroskoviString_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IKlijent">
+    <wsdl:operation name="LogInKorisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKlijent/LogInKorisnik" message="tns:IKlijent_LogInKorisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKlijent/LogInKorisnikResponse" message="tns:IKlijent_LogInKorisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Uplati">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKlijent/Uplati" message="tns:IKlijent_Uplati_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKlijent/UplatiResponse" message="tns:IKlijent_Uplati_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrikazKorisniku">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKlijent/PrikazKorisniku" message="tns:IKlijent_PrikazKorisniku_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKlijent/PrikazKorisnikuResponse" message="tns:IKlijent_PrikazKorisniku_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IOperater">
+    <wsdl:operation name="OperaterLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperater/OperaterLogin" message="tns:IOperater_OperaterLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperater/OperaterLoginResponse" message="tns:IOperater_OperaterLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OperaterAzuriranjeCene">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperater/OperaterAzuriranjeCene" message="tns:IOperater_OperaterAzuriranjeCene_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperater/OperaterAzuriranjeCeneResponse" message="tns:IOperater_OperaterAzuriranjeCene_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OperaterKorisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperater/OperaterKorisnik" message="tns:IOperater_OperaterKorisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperater/OperaterKorisnikResponse" message="tns:IOperater_OperaterKorisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OperaterAutomobil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperater/OperaterAutomobil" message="tns:IOperater_OperaterAutomobil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperater/OperaterAutomobilResponse" message="tns:IOperater_OperaterAutomobil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OperaterPopravka">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOperater/OperaterPopravka" message="tns:IOperater_OperaterPopravka_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOperater/OperaterPopravkaResponse" message="tns:IOperater_OperaterPopravka_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISistem" type="tns:ISistem">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Korisnik">
+      <soap:operation soapAction="http://tempuri.org/ISistem/Korisnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Automobil">
+      <soap:operation soapAction="http://tempuri.org/ISistem/Automobil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Popravka">
+      <soap:operation soapAction="http://tempuri.org/ISistem/Popravka" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="brisiAuto">
+      <soap:operation soapAction="http://tempuri.org/ISistem/brisiAuto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="brisiKorisnika">
+      <soap:operation soapAction="http://tempuri.org/ISistem/brisiKorisnika" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="brisiPopravke">
+      <soap:operation soapAction="http://tempuri.org/ISistem/brisiPopravke" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AzuriranjeCene">
+      <soap:operation soapAction="http://tempuri.org/ISistem/AzuriranjeCene" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UkupniTroskovi">
+      <soap:operation soapAction="http://tempuri.org/ISistem/UkupniTroskovi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInAdministrator">
+      <soap:operation soapAction="http://tempuri.org/ISistem/LogInAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UkupniTroskoviString">
+      <soap:operation soapAction="http://tempuri.org/ISistem/UkupniTroskoviString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IKlijent" type="tns:IKlijent">
+    <wsp:PolicyReference URI="#NetTcpBinding_IKlijent_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="LogInKorisnik">
+      <soap12:operation soapAction="http://tempuri.org/IKlijent/LogInKorisnik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Uplati">
+      <soap12:operation soapAction="http://tempuri.org/IKlijent/Uplati" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrikazKorisniku">
+      <soap12:operation soapAction="http://tempuri.org/IKlijent/PrikazKorisniku" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetNamedPipeBinding_IOperater" type="tns:IOperater">
+    <wsp:PolicyReference URI="#NetNamedPipeBinding_IOperater_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/named-pipe" />
+    <wsdl:operation name="OperaterLogin">
+      <soap12:operation soapAction="http://tempuri.org/IOperater/OperaterLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperaterAzuriranjeCene">
+      <soap12:operation soapAction="http://tempuri.org/IOperater/OperaterAzuriranjeCene" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperaterKorisnik">
+      <soap12:operation soapAction="http://tempuri.org/IOperater/OperaterKorisnik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperaterAutomobil">
+      <soap12:operation soapAction="http://tempuri.org/IOperater/OperaterAutomobil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperaterPopravka">
+      <soap12:operation soapAction="http://tempuri.org/IOperater/OperaterPopravka" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AutoServis">
+    <wsdl:port name="BasicHttpBinding_ISistem" binding="tns:BasicHttpBinding_ISistem">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/AutoServis/Service1/Sistem" />
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IKlijent" binding="tns:NetTcpBinding_IKlijent">
+      <soap12:address location="net.tcp://localhost:8734/Design_Time_Addresses/AutoServis/Service1/Klijent" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8734/Design_Time_Addresses/AutoServis/Service1/Klijent</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetNamedPipeBinding_IOperater" binding="tns:NetNamedPipeBinding_IOperater">
+      <soap12:address location="net.pipe://localhost/Design_Time_Addresses/AutoServis/Service1/Operater" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.pipe://localhost/Design_Time_Addresses/AutoServis/Service1/Operater</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

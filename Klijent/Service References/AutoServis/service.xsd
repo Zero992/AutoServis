@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/AutoServis" />
+  <xs:element name="Korisnik">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorisnikResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Automobil">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_automobila" type="xs:int" />
+        <xs:element minOccurs="0" name="podaci" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cena_popravke" type="xs:double" />
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id_popravke" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutomobilResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Popravka">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_popravke" type="xs:int" />
+        <xs:element minOccurs="0" name="deo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cena_dela" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PopravkaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="brisiAuto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_automobila" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="brisiAutoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="brisiKorisnika">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="brisiKorisnikaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="brisiPopravke">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_popravke" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="brisiPopravkeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AzuriranjeCene">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cena_dela" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AzuriranjeCeneResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UkupniTroskovi">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UkupniTroskoviResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AutoServis" minOccurs="0" name="UkupniTroskoviResult" nillable="true" type="q1:PodaciAutomobila" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInAdministrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInAdministratorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogInAdministratorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UkupniTroskoviString">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UkupniTroskoviStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UkupniTroskoviStringResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInKorisnik">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInKorisnikResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogInKorisnikResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Uplati">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UplatiResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikazKorisniku">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrikazKorisnikuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PrikazKorisnikuResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OperaterLoginResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterAzuriranjeCene">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cena_dela" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterAzuriranjeCeneResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterKorisnik">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterKorisnikResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterAutomobil">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_automobila" type="xs:int" />
+        <xs:element minOccurs="0" name="podaci" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cena_popravke" type="xs:double" />
+        <xs:element minOccurs="0" name="korisnicko_ime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id_popravke" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterAutomobilResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterPopravka">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id_popravke" type="xs:int" />
+        <xs:element minOccurs="0" name="deo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cena_dela" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OperaterPopravkaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
